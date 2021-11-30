@@ -1,31 +1,52 @@
-// Funtion for change theme button
-const btnChangeTheme = document.querySelector(".btnChangeTheme")
+// Function for show menu
+const btnShowMenu = document.querySelector(".btnShowMenu")
+const btnCloseMenu = document.querySelector(".btnCloseMenu")
 const container = document.querySelector(".container")
+
+btnShowMenu.addEventListener("click",() => {
+    container.classList.toggle("show-menu")
+})
+btnCloseMenu.addEventListener("click",() => {
+    container.classList.toggle("show-menu")
+})
+
+// Function for change theme
+const btnChangeTheme = document.querySelector(".btnChangeTheme")
 btnChangeTheme.addEventListener("click",() => {
-    container.classList.toggle("changetheme")
+    container.classList.toggle("change-theme")
     btnChangeTheme.classList.toggle("fas")
 })
 
-
-
-
-
+// Function for show data of the day
 const dateNumber = document.querySelector(".date-number")
 const dateText = document.querySelector(".date-text")
 const dateMonth = document.querySelector(".date-month")
 const dateYear = document.querySelector(".date-year")
 
-const listTasks = document.querySelector(".list-tasks")
-
 const setDate = () => {
     const date = new Date()
-    dateNumber.textContent = date.toLocaleString("es", {day: "numeric"})
-    dateText.textContent = date.toLocaleString("es", {weekday: "short"})
-    dateMonth.textContent = date.toLocaleString("es", {month: "short"})
-    dateYear.textContent = date.toLocaleString("es", {year: "numeric"})
+    dateNumber.textContent = date.toLocaleString("en", {day: "numeric"})
+    dateText.textContent = date.toLocaleString("en", {weekday: "long"})
+    dateMonth.textContent = date.toLocaleString("en", {month: "short"})
+    dateYear.textContent = date.toLocaleString("en", {year: "numeric"})
 }
 
 setDate()
+
+// Function for show form add new task
+const formNewTask = document.querySelector(".form-newTask")
+const btnNewTask = document.querySelector(".btnNewTask")
+const btnCloseForm = document.querySelector(".btnCloseForm")
+
+btnNewTask.addEventListener("click",() => {
+    formNewTask.classList.toggle("show-form")
+})
+btnCloseForm.addEventListener("click",() => {
+    formNewTask.classList.toggle("show-form")
+})
+
+// Function for add new task
+const tasksList = document.querySelector(".tasks-list")
 
 const addNewTask = (event) => {
     event.preventDefault()
@@ -33,7 +54,10 @@ const addNewTask = (event) => {
     if(!value) return
     const task = document.createElement("li")
     task.textContent = value
-    listTasks.prepend(task)
+    tasksList.prepend(task)
     event.target.reset()
+    formNewTask.classList.toggle("show-form")
+
 }
+
 

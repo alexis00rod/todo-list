@@ -7,6 +7,8 @@
     --color-font2: #6783d4;
     --color-primary: #eb05ff;
     --color-secondary: #2771e6;
+
+    --font-primary: 'Ubuntu Mono', monospace;
 }
 
 
@@ -19,87 +21,201 @@
 }
 
 body {
-    font-family: 'Ubuntu Mono', monospace;
     background-color: var(--color-font2);
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: var(--font-primary);
 }
-
-.container {
+main {
     width: 25rem;
     height: 40rem;
+    position: relative;
+    overflow: hidden;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+button {
+    border: none;
+    font-family: var(--font-primary);
+    font-size: .9rem;
+}
+
+
+/* Menu */
+.menu {
+    width: inherit;
+    height: inherit;
+    background-color: var(--color-card);
     border-radius: 1rem;
-    padding: 1rem;
-    background-color: var(--color-bg);
+    padding: 2rem;
     color: var(--color-font);
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 }
-.changetheme {
+.menu-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 80%;
+    position: relative;
+}
+.menu-header img {
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    border: .15rem solid var(--color-primary);
+    padding: 0.3rem;
+    box-shadow: .1rem .1rem .6rem var(--color-primary);
+}
+.menu-header h3 {
+    font-size: 2rem;
+}
+.menu-header i {
+    border: .1rem solid var(--color-font2);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+}
+.menu-nav {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.menu-nav a {
+    width: 100%;
+    color: var(--color-font);
+    display: flex;
+    gap: 1rem;
+}
+.menu-nav a i {
+    color: var(--color-font2);
+    cursor: pointer;
+}
+
+
+/* Container */
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: inherit;
+    height: inherit;
+    background-color: var(--color-bg);
+    border-radius: 1rem;
+    padding: 2rem;
+    color: var(--color-font);
+    transition: .5s;
+}
+.container-header-ctrl {
+    width: 100%;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container-header-ctrl i {
+    color: var(--color-font2);
+    cursor: pointer;
+}
+.change-theme {
     background-color: var(--color-font);
     color: var(--color-card);
 }
-.container nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-.container nav h1 {
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 2.5rem;
-}
-.container nav i {
-    cursor: pointer;
-    font-size: 1.3rem;
-}
-.container nav i:hover {
-    color: yellow;
-}
-.container .list-tasks {
-    flex-grow: 1;
+.show-menu {
+    top: 10%;
+    height: 80%;
+    left: 80%;
 }
 
-/* Containet LIST TASKS */
-.list-tasks {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.list-tasks li {
-    background-color: var(--color-card);
-    padding: .5rem 1rem;
-    border-radius: 1rem;
-}
+/* Task Container */
+.task-container {
 
-/* Container FORM */
-.container form {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
 }
-.container form input {
-    flex-grow: 1;
-    border-radius: 1rem;
-    border: none;
-    padding: .5rem 1rem;
-    color: var(--color-card);
-    outline: none;
-}
-.container form input::placeholder {
+.task-container h4 {
     color: var(--color-font2);
+    font-size: 1.2rem;
 }
-.container form button {
+.tasks-list {
+    
+}
+.tasks-list li {
+
+}
+
+/* Form for new task*/
+.form-newTask {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-font);
+    border-radius: 1rem;
+    padding: 2rem;
+    color: var(--color-bg);
+    transition: .5s;
+    z-index: 3;
+}
+
+.show-form {
+    top: 0;
+}
+
+
+/* Buttons */
+.btnNewTask {
+    margin: 0 auto;
     background-color: var(--color-primary);
-    border-radius: 50%;
-    border: none;
+    box-shadow: .1rem .1rem .6rem var(--color-primary);   
     width: 3rem;
     height: 3rem;
+    font-size: 1.3rem;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: var(--color-font);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.btnCloseForm {
+    border: .1rem solid var(--color-font2);
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    cursor: pointer;
+    background: none;
+    color: var(--color-bg);
+    z-index: 4;
+}
+.btnAddTask {
+    background-color: var(--color-primary);
+    box-shadow: .1rem .1rem .6rem var(--color-primary);
+    color: var(--color-font);
+    padding: .8rem 1.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
 }
