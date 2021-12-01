@@ -120,47 +120,79 @@ button {
     padding: 2rem;
     color: var(--color-font);
     transition: .5s;
-}
-.container-header-ctrl {
-    width: 100%;
-    height: 3rem;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: .8rem;
 }
-.container-header-ctrl i {
+
+/* Container Header */
+.container-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container-header button {
+    background: none;
     color: var(--color-font2);
+    font-size: 1.4rem;
     cursor: pointer;
 }
-.change-theme {
-    background-color: var(--color-font);
-    color: var(--color-card);
+
+/* Container Date */
+.date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
-.show-menu {
-    top: 10%;
-    height: 80%;
-    left: 80%;
+.date-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.day-number {
+    font-size: 1.5rem;
+}
+.day-text {
+    font-size: .9rem;
+}
+.date-month {
+    font-size: 1.8rem;
 }
 
 /* Task Container */
 .task-container {
-
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.task-container h2 {
+    font-size: 2rem;
+    text-shadow: .1rem .1rem .5rem rgba(255,255,255,.5);
 }
 .task-container h4 {
     color: var(--color-font2);
     font-size: 1.2rem;
+    padding: .5rem 0;
 }
 .tasks-list {
-    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-grow: 1;
 }
 .tasks-list li {
-
+    width: 100%;
+    background-color: var(--color-card);
+    box-shadow: .1rem .1rem .6rem var(--color-card);
+    padding: .8rem 1.3rem;
+    border-radius: 1rem;
 }
 
 /* Form for new task*/
 .form-newTask {
     position: absolute;
-    top: 150%;
+    top: 100%;
     left: 0;
     width: 100%;
     height: 100%;
@@ -179,7 +211,7 @@ button {
 
 /* Buttons */
 .btnNewTask {
-    margin: 0 auto;
+    margin: auto;
     background-color: var(--color-primary);
     box-shadow: .1rem .1rem .6rem var(--color-primary);   
     width: 3rem;
@@ -191,9 +223,6 @@ button {
     align-items: center;
     justify-content: center;
     color: var(--color-font);
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
 }
 .btnCloseForm {
     border: .1rem solid var(--color-font2);

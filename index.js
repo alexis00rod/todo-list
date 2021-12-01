@@ -18,17 +18,15 @@ btnChangeTheme.addEventListener("click",() => {
 })
 
 // Function for show data of the day
-const dateNumber = document.querySelector(".date-number")
-const dateText = document.querySelector(".date-text")
+const dateNumber = document.querySelector(".day-number")
+const dateText = document.querySelector(".day-text")
 const dateMonth = document.querySelector(".date-month")
-const dateYear = document.querySelector(".date-year")
 
 const setDate = () => {
     const date = new Date()
     dateNumber.textContent = date.toLocaleString("en", {day: "numeric"})
-    dateText.textContent = date.toLocaleString("en", {weekday: "long"})
+    dateText.textContent = date.toLocaleString("en", {weekday: "short"})
     dateMonth.textContent = date.toLocaleString("en", {month: "short"})
-    dateYear.textContent = date.toLocaleString("en", {year: "numeric"})
 }
 
 setDate()
